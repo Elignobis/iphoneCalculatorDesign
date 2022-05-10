@@ -6,41 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Calculator Design</title>
+    <script defer>
+        function insert(num){
+            document.form.textview.value = document.form.textview.value+num
+        }
+        function clean(){
+            document.form.textview.value = '';
+        }
+        function equal(){
+            var exp = document.form.textview.value
+            if(exp){
+                document.form.textview.value = eval(exp)
+            }  
+        }
+        function back(){
+           var exp = document.form.textview.value;
+           document.form.textview.value = exp.substring(0,exp.legnth,1);
+        }
+    </script>
 </head>
 <body>
-    <Div class="main-con">
-        <input class="view" type="number" style="background-color: black; color: white; height: 60px;">
+    <div class="main-con">
+        <form name="form">
+            <input class="textview view" name="textview" style="background-color: black; color: white; height: 60px;">
+        </form>
+        
         <table>
                 <tr>
-                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="C"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="<"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="%"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="/"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="C" onclick="clean()"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="<" onclick="back()"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="%" onclick="'%'"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="/" onclick="'/'"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" class="button" value="7"></td>
-                    <td><input type="button" class="button" value="8"></td>
-                    <td><input type="button" class="button" value="9"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="X"></td>
+                    <td><input type="button" class="button" value="7" onclick="insert(7)"></td>
+                    <td><input type="button" class="button" value="8" onclick="insert(8)" onclick="insert(7)"></td>
+                    <td><input type="button" class="button" value="9" onclick="insert(9)"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="X" onclick="insert('*')"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" class="button" value="4"></td>
-                    <td><input type="button" class="button" value="5"></td>
-                    <td><input type="button" class="button" value="6"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="-"></td>
+                    <td><input type="button" class="button" value="4" onclick="insert(4)"></td>
+                    <td><input type="button" class="button" value="5" onclick="insert(5)"></td>
+                    <td><input type="button" class="button" value="6" onclick="insert(6)"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="-" onclick="insert('-')"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" class="button" value="1"></td>
-                    <td><input type="button" class="button" value="2"></td>
-                    <td><input type="button" class="button" value="3"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="+"></td>
+                    <td><input type="button" class="button" value="1" onclick="insert(1)"></td>
+                    <td><input type="button" class="button" value="2" onclick="insert(2)"></td>
+                    <td><input type="button" class="button" value="3" onclick="insert(3)"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="+" onclick="insert('+')"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input style="width: 125px; text-align: start; padding-left: 10px;" type="button" class="button" value="0" class="width-button"></td>
-                    <td><input type="button" class="button" value=","></td>
-                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="="></td>
+                    <td colspan="2"><input style="width: 125px; text-align: start; padding-left: 10px;" type="button" class="button" value="0" class="width-button" onclick="insert(0)"></td>
+                    <td><input type="button" class="button" value="," onclick="insert('.')"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="=" onclick="equal()"></td>
                 </tr>
         </table>
-    </Div>
+    </div>
 </body>
 </html>
