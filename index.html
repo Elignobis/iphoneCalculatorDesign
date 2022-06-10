@@ -6,24 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Calculator Design</title>
-    <script defer>
-        function insert(num){
-            document.form.textview.value = document.form.textview.value+num
-        }
-        function clean(){
-            document.form.textview.value = '';
-        }
-        function equal(){
-            var exp = document.form.textview.value
-            if(exp){
-                document.form.textview.value = eval(exp)
-            }  
-        }
-        function back(){
-           var exp = document.form.textview.value;
-           document.form.textview.value = exp.substring(0,exp.legnth,1);
-        }
-    </script>
 </head>
 <body>
     <div class="main-con">
@@ -35,8 +17,8 @@
                 <tr>
                     <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="C" onclick="clean()"></td>
                     <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="<" onclick="back()"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="%" onclick="'%'"></td>
-                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="/" onclick="'/'"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(163, 160, 160); color: black;" value="%" onclick="insert('%')"></td>
+                    <td><input type="button" class="button" style="background-color: rgb(248, 172, 78); color: white;" value="/" onclick="insert('/')"></td>
                 </tr>
                 <tr>
                     <td><input type="button" class="button" value="7" onclick="insert(7)"></td>
@@ -63,5 +45,6 @@
                 </tr>
         </table>
     </div>
+    <script src="./Stripts/script.js"></script>
 </body>
 </html>
